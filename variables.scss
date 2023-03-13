@@ -1,0 +1,13 @@
+/* CSS does not support variables but Sass does */
+/* Variables begin with $ */
+$color: red; 
+
+ul {
+    font-size: 14px;
+    color: $color;
+}
+
+ol {
+    font-size: 18px;
+    color: $color;
+}
