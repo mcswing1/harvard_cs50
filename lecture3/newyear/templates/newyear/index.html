@@ -1,0 +1,22 @@
+<!-- Reference URL: https://www.youtube.com/watch?v=vzGllw18DkA&t=257s - 4:50:22 -->
+
+<!-- Load static CSS into this HTML file - 4:57:38 -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Is it New Years?</title>
+        <!-- link a style sheet -->
+        <link href="{% static 'newyear/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <!-- The syntax for logic inside Django (i.e. conditions) is curly braces with percent signs inside -->
+        {% if newyear  %}
+            <h1>YES</h1>
+        {% else %}
+            <h1>NO</h1>
+        <!-- Django requires an "endif" statement at the end of an if/else statement -->
+        {% endif %}
+    </body>
+</html>
