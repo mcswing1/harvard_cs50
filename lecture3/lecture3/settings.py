@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'hello',
     # Add the 'newyear' app to the list of installed apps. 4:45:08
     'newyear',
+    # Add "tasks" app to the list of installed apps. 5:01:19
+    'tasks', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

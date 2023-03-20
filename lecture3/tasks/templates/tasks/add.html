@@ -1,0 +1,28 @@
+<!-- Reference URL: https://www.youtube.com/watch?v=vzGllw18DkA&t=257s - 5:08:53 -->
+
+<!-- We remove everything from this page that is common and pull from the layout.html file - 5:12:39 -->
+{% extends "tasks/layout.html" %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body> -->
+    {% block body %}
+        <h1>Add Task</h1>
+        <form action="{% url 'tasks:add' %}" method="post">
+            <!-- Add the CSRF token for the form submission - 5:25:00 -->
+            {% csrf_token %}
+            <!-- Instead of having a text input, we plugin the form from views.py and Django will generate the necessary HTML to make that form work. - 5:27:50 -->
+            {{ form }}
+            <!-- <input type="text" name="task"> -->
+            <input type="submit">
+        </form>
+        <p>
+        <!-- Utilizes the app_name in urls.py to uniquely identify the index.html file for the tasks app - 5:19:25 -->
+        <a href="{% url 'tasks:index' %}">View Tasks</a>
+        </p>
+    {% endblock %}
+<!--</body>
+</html> -->

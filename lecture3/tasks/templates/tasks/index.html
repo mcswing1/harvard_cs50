@@ -1,0 +1,24 @@
+<!-- Reference URL: https://www.youtube.com/watch?v=vzGllw18DkA&t=257s - 5:04:51 -->
+
+<!-- We remove everything from this page that is common and pull from the layout.html file - 5:12:39 -->
+{% extends "tasks/layout.html" %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body> -->
+    {% block body %}
+        <h1>Tasks</h1>
+        <ul>
+            <!-- Instead of hard-coding the list items, we instead loop over the "tasks" variable and plug-in the value of the task variable. -->
+            {% for task in tasks %}
+                <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+        <!-- Link to the URL whose name is "add" based on the urls.py file - 5:16:25 -->
+        <a href="{% url 'tasks:add' %}">Add a New Task</a>
+    {% endblock %}
+<!--    </body>
+</html> -->

@@ -21,8 +21,10 @@ from django.urls import include, path
 urlpatterns = [
     # Runs the default application which is the "admin" application.
     path('admin/', admin.site.urls),
-    # Adding a path for the "hello" app. Inside the hello module, include the "urls.py" file. But this also requires to import "include", which is done above. 
+    # Adding the URL paths for the "hello" app. Inside the hello module, include the "urls.py" file. But this also requires to import "include", which is done above. 
     path('hello/', include("hello.urls")),
-    # Adding a path for the "newyear" app. - 4:45:38
-    path('newyear/', include("newyear.urls"))
+    # Adding the URL paths for the "newyear" app. - 4:45:38
+    path('newyear/', include("newyear.urls")),
+    # Adding the URL paths for the "tasks" app. - 5:01:32
+    path('tasks/', include("tasks.urls"))
 ]
