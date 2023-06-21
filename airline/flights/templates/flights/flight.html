@@ -1,0 +1,12 @@
+<!-- Reference URL: https://www.youtube.com/watch?v=vzGllw18DkA&t=257s - 7:04:09 -->
+
+{% extends "flights/layout.html" %}
+
+{% block body %}
+    <h1>Flights {{ flight.id }}</h1>
+    <ul>
+        <li>Origin: {{ flight.origin }}</li>
+        <li>Destination: {{ flight.destination }}</li>
+        <li>Duration: {{ flight.duration }}</li>
+    </ul>
+{% endblock %}

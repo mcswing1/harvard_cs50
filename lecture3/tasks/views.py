@@ -6,7 +6,8 @@ from django.urls import reverse
 
 # Add a global variable called "tasks" with a list of tasks to display.
 # Changed to an empty list. - 5:37:42
-tasks = []
+# In order to take advantage of sessions, we get rid of the global variable "tasks." - 5:39:48
+# tasks = []
 
 # Define a Python class for the form - 5:26:55
 class NewTaskForm(forms.Form):
@@ -18,8 +19,12 @@ class NewTaskForm(forms.Form):
 
 # Create your views here.
 def index(request):
+    # If I look inside the session and a list of tasks is not already in that session, set the "tasks" to the empty list. - 5:40:00
+    if "tasks" not in request.session:
+        request.session["tasks"] = []
     return render(request, "tasks/index.html", { 
-        "tasks": tasks
+        # We no longer render the tasks variable because it no longer exists, we pass in the list of tasks to that template. - 5:41:04 
+        "tasks": request.session["tasks"]
     })
 
 # Create a new page that will allow us to add new tasks. 
@@ -31,7 +36,9 @@ def add(request):
             # Give access to all the data the user submitted.
             task = form.cleaned_data["task"]
             # Add the task to the list of tasks. 
-            tasks.append(task)
+            # tasks.append(task) - We remove the append of tasks to the end of the task list. - 5:43:48
+            # We check the form is valid, we then take the task and then append the task to the list of tasks before re-directing the user back to the index page. - 5:44:00
+            request.session["tasks"] += [task]
             # Return the user back to the "tasks" screen after adding a task using the built-in reverse function in Django - 5:36:52
             return HttpResponseRedirect(reverse("tasks:index"))
         else:
